@@ -4,22 +4,23 @@ import com.epsi.arosaje.entities.Users;
 import com.epsi.arosaje.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class UsersController {
     @Autowired
     private UsersRepository usersRepository;
 
-
+    @GetMapping("/login")
+    public Users login(@RequestHeader("username") String username, @RequestHeader("password") String password){
+        Users users = usersRepository.findByUserName(username);
+        return users;
+    }
     @PostMapping("/register")
     public void register(@RequestHeader("username") String username, @RequestHeader("password") String password, @RequestHeader("email") String email) {
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(email);
         Users user = new Users();
         user.setName(password);
         user.setEmail(email);
