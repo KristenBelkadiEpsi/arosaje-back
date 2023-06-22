@@ -13,7 +13,7 @@ import java.time.OffsetDateTime;
 
 
 @Entity
-public class Messages {
+public class Tip {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -27,7 +27,7 @@ public class Messages {
             strategy = GenerationType.SEQUENCE,
             generator = "primary_sequence"
     )
-    private Integer messageId;
+    private Integer tipId;
 
     @Column
     private String content;
@@ -36,19 +36,19 @@ public class Messages {
     private OffsetDateTime dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_id")
-    private Users sender;
+    @JoinColumn(name = "botanist_id")
+    private Botanist botanist;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "receiver_id")
-    private Users receiver;
+    @JoinColumn(name = "plant_id")
+    private Plant plant;
 
-    public Integer getMessageId() {
-        return messageId;
+    public Integer getTipId() {
+        return tipId;
     }
 
-    public void setMessageId(final Integer messageId) {
-        this.messageId = messageId;
+    public void setTipId(final Integer tipId) {
+        this.tipId = tipId;
     }
 
     public String getContent() {
@@ -67,20 +67,20 @@ public class Messages {
         this.dateTime = dateTime;
     }
 
-    public Users getSender() {
-        return sender;
+    public Botanist getBotanist() {
+        return botanist;
     }
 
-    public void setSender(final Users sender) {
-        this.sender = sender;
+    public void setBotanist(final Botanist botanist) {
+        this.botanist = botanist;
     }
 
-    public Users getReceiver() {
-        return receiver;
+    public Plant getPlant() {
+        return plant;
     }
 
-    public void setReceiver(final Users receiver) {
-        this.receiver = receiver;
+    public void setPlant(final Plant plant) {
+        this.plant = plant;
     }
 
 }

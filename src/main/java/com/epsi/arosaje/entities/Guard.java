@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 
 @Entity
-public class Guards {
+public class Guard {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -37,11 +37,11 @@ public class Guards {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plant_id")
-    private Plants plant;
+    private Plant plant;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     public Long getId() {
         return id;
@@ -67,19 +67,19 @@ public class Guards {
         this.endDate = endDate;
     }
 
-    public Plants getPlant() {
+    public Plant getPlant() {
         return plant;
     }
 
-    public void setPlant(final Plants plant) {
+    public void setPlant(final Plant plant) {
         this.plant = plant;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(final Users user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 

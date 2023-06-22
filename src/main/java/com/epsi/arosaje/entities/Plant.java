@@ -14,7 +14,7 @@ import java.util.Set;
 
 
 @Entity
-public class Plants {
+public class Plant {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -41,13 +41,13 @@ public class Plants {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @OneToMany(mappedBy = "plant")
-    private Set<Guards> plantGuardss;
+    private Set<Guard> plantGuardsses;
 
     @OneToMany(mappedBy = "plant")
-    private Set<Tips> plantTipss;
+    private Set<Tip> plantTipsses;
 
     public Integer getPlantId() {
         return plantId;
@@ -81,28 +81,28 @@ public class Plants {
         this.photo = photo;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(final Users user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
-    public Set<Guards> getPlantGuardss() {
-        return plantGuardss;
+    public Set<Guard> getPlantGuardss() {
+        return plantGuardsses;
     }
 
-    public void setPlantGuardss(final Set<Guards> plantGuardss) {
-        this.plantGuardss = plantGuardss;
+    public void setPlantGuardss(final Set<Guard> plantGuardsses) {
+        this.plantGuardsses = plantGuardsses;
     }
 
-    public Set<Tips> getPlantTipss() {
-        return plantTipss;
+    public Set<Tip> getPlantTipss() {
+        return plantTipsses;
     }
 
-    public void setPlantTipss(final Set<Tips> plantTipss) {
-        this.plantTipss = plantTipss;
+    public void setPlantTipss(final Set<Tip> plantTipsses) {
+        this.plantTipsses = plantTipsses;
     }
 
 }

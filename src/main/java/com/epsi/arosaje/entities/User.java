@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 @Entity
-public class Users {
+public class User {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -37,19 +37,19 @@ public class Users {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private Set<Botanists> userBotanistss;
+    private Set<Botanist> userBotanistsses;
 
     @OneToMany(mappedBy = "user")
-    private Set<Plants> userPlantss;
+    private Set<Plant> userPlantsses;
 
     @OneToMany(mappedBy = "user")
-    private Set<Guards> userGuardss;
+    private Set<Guard> userGuardsses;
 
     @OneToMany(mappedBy = "sender")
-    private Set<Messages> senderMessagess;
+    private Set<Message> senderMessagesses;
 
     @OneToMany(mappedBy = "receiver")
-    private Set<Messages> receiverMessagess;
+    private Set<Message> receiverMessagesses;
 
     public Integer getUserId() {
         return userId;
@@ -83,44 +83,44 @@ public class Users {
         this.password = password;
     }
 
-    public Set<Botanists> getUserBotanistss() {
-        return userBotanistss;
+    public Set<Botanist> getUserBotanistss() {
+        return userBotanistsses;
     }
 
-    public void setUserBotanistss(final Set<Botanists> userBotanistss) {
-        this.userBotanistss = userBotanistss;
+    public void setUserBotanistss(final Set<Botanist> userBotanistsses) {
+        this.userBotanistsses = userBotanistsses;
     }
 
-    public Set<Plants> getUserPlantss() {
-        return userPlantss;
+    public Set<Plant> getUserPlantss() {
+        return userPlantsses;
     }
 
-    public void setUserPlantss(final Set<Plants> userPlantss) {
-        this.userPlantss = userPlantss;
+    public void setUserPlantss(final Set<Plant> userPlantsses) {
+        this.userPlantsses = userPlantsses;
     }
 
-    public Set<Guards> getUserGuardss() {
-        return userGuardss;
+    public Set<Guard> getUserGuardss() {
+        return userGuardsses;
     }
 
-    public void setUserGuardss(final Set<Guards> userGuardss) {
-        this.userGuardss = userGuardss;
+    public void setUserGuardss(final Set<Guard> userGuardsses) {
+        this.userGuardsses = userGuardsses;
     }
 
-    public Set<Messages> getSenderMessagess() {
-        return senderMessagess;
+    public Set<Message> getSenderMessagess() {
+        return senderMessagesses;
     }
 
-    public void setSenderMessagess(final Set<Messages> senderMessagess) {
-        this.senderMessagess = senderMessagess;
+    public void setSenderMessagess(final Set<Message> senderMessagesses) {
+        this.senderMessagesses = senderMessagesses;
     }
 
-    public Set<Messages> getReceiverMessagess() {
-        return receiverMessagess;
+    public Set<Message> getReceiverMessagess() {
+        return receiverMessagesses;
     }
 
-    public void setReceiverMessagess(final Set<Messages> receiverMessagess) {
-        this.receiverMessagess = receiverMessagess;
+    public void setReceiverMessagess(final Set<Message> receiverMessagesses) {
+        this.receiverMessagesses = receiverMessagesses;
     }
 
 }

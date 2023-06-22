@@ -6,7 +6,7 @@ import java.util.Set;
 
 
 @Entity
-public class Botanists {
+public class Botanist {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -24,10 +24,10 @@ public class Botanists {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private User user;
 
     @OneToMany(mappedBy = "botanist")
-    private Set<Tips> botanistTipss;
+    private Set<Tip> botanistTipsses;
 
     public Integer getBotanistId() {
         return botanistId;
@@ -37,20 +37,20 @@ public class Botanists {
         this.botanistId = botanistId;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(final Users user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
-    public Set<Tips> getBotanistTipss() {
-        return botanistTipss;
+    public Set<Tip> getBotanistTipss() {
+        return botanistTipsses;
     }
 
-    public void setBotanistTipss(final Set<Tips> botanistTipss) {
-        this.botanistTipss = botanistTipss;
+    public void setBotanistTipss(final Set<Tip> botanistTipsses) {
+        this.botanistTipsses = botanistTipsses;
     }
 
 }
