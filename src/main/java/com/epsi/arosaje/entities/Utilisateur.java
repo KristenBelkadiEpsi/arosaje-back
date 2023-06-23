@@ -11,16 +11,7 @@ public class Utilisateur {
 
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer utilisateurId;
 
     @Column(length = 100)
@@ -119,4 +110,8 @@ public class Utilisateur {
         this.destinataireMessages = destinataireMessages;
     }
 
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "utilisateurId=" + utilisateurId + ", nom='" + nom + '\'' + ", email='" + email + '\'' + ", motdepasse='" + motdepasse + '\'' + '}';
+    }
 }

@@ -11,16 +11,7 @@ public class Plante {
 
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer planteId;
 
     @Column(length = 100)
@@ -98,4 +89,8 @@ public class Plante {
         this.planteConseils = planteConseils;
     }
 
+    @Override
+    public String toString() {
+        return "Plante{" + "planteId=" + planteId + ", nom='" + nom + '\'' + ", description='" + description + '\'' + ", photo='" + photo + '\'' + ", utilisateur=" + utilisateur + '}';
+    }
 }

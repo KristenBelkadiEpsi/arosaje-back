@@ -1,4 +1,5 @@
 package com.epsi.arosaje.entities;
+
 import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
@@ -10,16 +11,7 @@ public class Conseil {
 
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer conseilId;
 
     @Column(columnDefinition = "text")
@@ -76,4 +68,9 @@ public class Conseil {
         this.plante = plante;
     }
 
+
+    @Override
+    public String toString() {
+        return "Conseil{" + "conseilId=" + conseilId + ", contenu='" + contenu + '\'' + ", date=" + date + ", botaniste=" + botaniste + ", plante=" + plante + '}';
+    }
 }

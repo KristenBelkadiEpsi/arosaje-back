@@ -11,16 +11,7 @@ public class Message {
 
     @Id
     @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer messageId;
 
     @Column(columnDefinition = "text")
@@ -77,4 +68,8 @@ public class Message {
         this.destinataire = destinataire;
     }
 
+    @Override
+    public String toString() {
+        return "Message{" + "messageId=" + messageId + ", contenu='" + contenu + '\'' + ", date=" + date + '}';
+    }
 }
