@@ -1,13 +1,12 @@
 package com.epsi.arosaje.entities;
-
 import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
 
 
 @Entity
-@Table(name = "Message")
-public class Message {
+@Table(name = "Conseil")
+public class Conseil {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -21,7 +20,7 @@ public class Message {
             strategy = GenerationType.SEQUENCE,
             generator = "primary_sequence"
     )
-    private Integer messageId;
+    private Integer conseilId;
 
     @Column(columnDefinition = "text")
     private String contenu;
@@ -30,19 +29,19 @@ public class Message {
     private OffsetDateTime date;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "expediteur_id")
-    private Utilisateur expediteur;
+    @JoinColumn(name = "botaniste_id")
+    private Botaniste botaniste;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "destinataire_id")
-    private Utilisateur destinataire;
+    @JoinColumn(name = "plante_id")
+    private Plante plante;
 
-    public Integer getMessageId() {
-        return messageId;
+    public Integer getConseilId() {
+        return conseilId;
     }
 
-    public void setMessageId(final Integer messageId) {
-        this.messageId = messageId;
+    public void setConseilId(final Integer conseilId) {
+        this.conseilId = conseilId;
     }
 
     public String getContenu() {
@@ -61,20 +60,20 @@ public class Message {
         this.date = date;
     }
 
-    public Utilisateur getExpediteur() {
-        return expediteur;
+    public Botaniste getBotaniste() {
+        return botaniste;
     }
 
-    public void setExpediteur(final Utilisateur expediteur) {
-        this.expediteur = expediteur;
+    public void setBotaniste(final Botaniste botaniste) {
+        this.botaniste = botaniste;
     }
 
-    public Utilisateur getDestinataire() {
-        return destinataire;
+    public Plante getPlante() {
+        return plante;
     }
 
-    public void setDestinataire(final Utilisateur destinataire) {
-        this.destinataire = destinataire;
+    public void setPlante(final Plante plante) {
+        this.plante = plante;
     }
 
 }
