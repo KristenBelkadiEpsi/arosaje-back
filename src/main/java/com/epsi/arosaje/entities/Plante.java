@@ -10,17 +10,7 @@ import java.util.Set;
 public class Plante {
 
     @Id
-    @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer planteId;
 
     @Column(length = 100)
@@ -29,9 +19,8 @@ public class Plante {
     @Column(columnDefinition = "text")
     private String description;
 
-    @Column(columnDefinition = "text")
+    @Column(length = 100)
     private String photo;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;

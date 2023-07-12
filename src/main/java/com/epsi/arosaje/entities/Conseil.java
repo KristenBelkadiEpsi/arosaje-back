@@ -9,19 +9,7 @@ import java.time.OffsetDateTime;
 public class Conseil {
 
     @Id
-    @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
-    private Integer conseilId;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    private Integer conseilId;
     @Column(columnDefinition = "text")
     private String contenu;
 

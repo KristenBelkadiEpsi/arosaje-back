@@ -10,24 +10,11 @@ import java.util.Set;
 public class Botaniste {
 
     @Id
-    @Column(nullable = false, updatable = false)
-    @SequenceGenerator(
-            name = "primary_sequence",
-            sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer botanisteId;
 
-    @Column
-    private Integer utilisateurId;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "utilisteur_id")
+    @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
     @OneToMany(mappedBy = "botaniste")
@@ -41,13 +28,6 @@ public class Botaniste {
         this.botanisteId = botanisteId;
     }
 
-    public Integer getUtilisateurId() {
-        return utilisateurId;
-    }
-
-    public void setUtilisateurId(final Integer utilisateurId) {
-        this.utilisateurId = utilisateurId;
-    }
 
     public Utilisateur getUtilisteur() {
         return utilisateur;
