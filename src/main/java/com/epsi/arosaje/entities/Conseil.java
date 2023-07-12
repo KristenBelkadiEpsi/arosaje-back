@@ -1,4 +1,5 @@
 package com.epsi.arosaje.entities;
+
 import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
@@ -9,7 +10,14 @@ import java.time.OffsetDateTime;
 public class Conseil {
 
     @Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.IDENTITY)    private Integer conseilId;
+=======
+    @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer conseilId;
+
+>>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
     @Column(columnDefinition = "text")
     private String contenu;
 
@@ -64,4 +72,9 @@ public class Conseil {
         this.plante = plante;
     }
 
+
+    @Override
+    public String toString() {
+        return "Conseil{" + "conseilId=" + conseilId + ", contenu='" + contenu + '\'' + ", date=" + date + ", botaniste=" + botaniste + ", plante=" + plante + '}';
+    }
 }

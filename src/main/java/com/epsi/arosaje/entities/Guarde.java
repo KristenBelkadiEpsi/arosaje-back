@@ -10,6 +10,10 @@ import java.time.LocalDate;
 public class Guarde {
 
     @Id
+<<<<<<< HEAD
+=======
+    @Column(nullable = false, updatable = false)
+>>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -67,4 +71,8 @@ public class Guarde {
         this.utilisateur = utilisateur;
     }
 
+    @Override
+    public String toString() {
+        return "Guarde{" + "id=" + id + ", debutDate=" + debutDate + ", finDate=" + finDate + ", plante=" + plante + ", utilisateur=" + utilisateur + '}';
+    }
 }

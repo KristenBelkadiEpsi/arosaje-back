@@ -10,6 +10,10 @@ import java.util.Set;
 public class Plante {
 
     @Id
+<<<<<<< HEAD
+=======
+    @Column(nullable = false, updatable = false)
+>>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer planteId;
 
@@ -87,4 +91,8 @@ public class Plante {
         this.planteConseils = planteConseils;
     }
 
+    @Override
+    public String toString() {
+        return "Plante{" + "planteId=" + planteId + ", nom='" + nom + '\'' + ", description='" + description + '\'' + ", photo='" + photo + '\'' + ", utilisateur=" + utilisateur + '}';
+    }
 }
