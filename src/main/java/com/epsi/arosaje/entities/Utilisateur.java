@@ -10,10 +10,6 @@ import java.util.Set;
 public class Utilisateur {
 
     @Id
-<<<<<<< HEAD
-=======
-    @Column(nullable = false, updatable = false)
->>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer utilisateurId;
 

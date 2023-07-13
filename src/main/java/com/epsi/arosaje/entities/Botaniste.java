@@ -10,10 +10,7 @@ import java.util.Set;
 public class Botaniste {
 
     @Id
-<<<<<<< HEAD
-=======
     @Column(nullable = false, updatable = false)
->>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer botanisteId;
 
@@ -47,10 +44,5 @@ public class Botaniste {
 
     public void setBotanisteConseils(final Set<Conseil> botanisteConseils) {
         this.botanisteConseils = botanisteConseils;
-    }
-
-    @Override
-    public String toString() {
-        return "Botaniste{" + "botanisteId=" + botanisteId + ", utilisateurId=" + utilisateurId + ", utilisateur=" + utilisateur + '}';
     }
 }

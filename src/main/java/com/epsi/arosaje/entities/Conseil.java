@@ -10,14 +10,10 @@ import java.time.OffsetDateTime;
 public class Conseil {
 
     @Id
-<<<<<<< HEAD
-    @GeneratedValue(strategy = GenerationType.IDENTITY)    private Integer conseilId;
-=======
-    @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer conseilId;
 
->>>>>>> cccead28e50d7e28c3513aac7f140883a1955291
+
     @Column(columnDefinition = "text")
     private String contenu;
 
